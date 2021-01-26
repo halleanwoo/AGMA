@@ -1,0 +1,63 @@
+# --- QMIX specific parameters ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+epsilon_anneal_time: 50000
+
+runner: "parallel"
+batch_size_run: 8
+
+buffer_size: 5000
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# use the Q_Learner to train
+agent_output_type: "q"
+learner: "q_learner_perception"  # 两者的q_learner是一样的
+double_q: False
+mixer: "qmix"
+mixing_embed_dim: 32
+
+name: "qmix_smac_parallel"
+
+flag_gen_entropy: 0
+
+# ----- use for convention ------
+latent_dim: 3
+generator_hidden_dim: 16
+
+var_floor: 0.002  
+
+type_fc2: 'fc'  
+flag_laten_cat_ID: False                 
+flag_latent_expand_layer: True
+dim_expand_latent_dim: 16
+flag_gen_loss_norm: False
+flag_gen_loss_clamp: True 
+
+flag_consensus_loss_pair: 0
+flag_consensus_loss_all:  1  
+consensus_loss_weight: 1
+flag_consensus_after_fcDesign: 1
+
+flag_latent_state_loss: 1
+loss_entropy_weight: 0
+loss_kl_weight: 1
+
+flag_log_latentFinal: 0
+iter_log_latentFinal: 0
+
+flag_input_only_latent: 0
+flag_input_only_inputs: 1
+
+
+flag_hyperNet4fc1: 1
+flag_hyperNet4input: 0
+flag_hyperNet4fc2: 0
+dim_hyperNet4input: 100
+flag_normHyper4input: 0
+
+levin_set_seed: 0
